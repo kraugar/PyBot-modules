@@ -16,7 +16,7 @@ from shutil import copyfile
 import zipfile
 import os
 import sqlite3
-from stealersfunctions import *
+from modules.stealersfunctions import *
 
 import win32api
 
