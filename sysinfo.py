@@ -17,7 +17,7 @@ print "OS: " + platform.system()
 print "Machine type: " + platform.machine()
 print "Windows version: " + platform.platform()
 print "Current User: " + win32api.GetUserName()
-print "IP adress: " + socket.gethostbyname(platform.node())
+print "IP address: " + socket.gethostbyname(platform.node())
 
 ### RUNNING PROCESSES ###
 #SOURCE: http://www.blog.pythonlibrary.org/2010/10/03/how-to-find-and-list-all-running-processes-with-python/#
