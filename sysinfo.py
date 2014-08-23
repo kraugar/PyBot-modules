@@ -6,6 +6,7 @@ import win32file
 import win32pdh
 import socket
 import os
+import win32com.shell.shell as shell
 
 ### BASIC INFO ###
 
@@ -95,7 +96,7 @@ for i in range(256):
     except socket.error, socket.gaierror:
         pass
 
-### FILE LISTER###
+### FILE LISTER ###
 folder = 'C:\\Temp\\'
 
 print 
@@ -103,3 +104,7 @@ print "Contents of " + folder
 for root, dirs, files in os.walk(folder):
     for file in files:
         print os.path.join(root, file)
+
+### Execute javascript in windows via python ###
+### Explanation: http://thisissecurity.net/2014/08/20/poweliks-command-line-confusion/
+shell.ShellExecuteEx(lpFile="rundll32.exe", lpParameters = 'javascript:"\..\mshtml,RunHTMLApplication ";alert("foo");')
