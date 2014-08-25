@@ -31,11 +31,31 @@ Screenshot pidgin
 Microphone record
 =================
 
-#### PoC record from microphone.
+#### PoC record from microphone. Very early!
 
-Needs to be run from commandline, because of the use of multiprocessing.
+###### Needs to be run from commandline, because of the use of multiprocessing.
 
 
-dependencies:
+#### dependencies:
 ###### - Pyaudio
 
+
+####TODO:
+###### - List all microphones.
+###### - Error catching.
+
+Webcam view
+=================
+
+#### PoC view webcam feed. Very early!
+
+###### - Takes snapshot.
+###### - Shows video feed.
+
+#### Dependencies:
+###### - opencv2
+###### - numpy
+
+####TODO:
+###### - List all webcams
+###### - Error catching
