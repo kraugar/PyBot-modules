@@ -10,6 +10,7 @@ Stealers
 ###### -  Mozilla hashed credentials
 ###### -  Filezilla server credentials(plain text)
 ###### -  Chrome browsing history
+###### -  Chrome passwords
 
 sysinfo
 =======
