@@ -25,6 +25,16 @@ sysinfo
 Screenshot pidgin
 =================
 
-###### Take screenshot of pidgin if it is on top
+###### Take screenshot of pidgin if it is on top.
 
+Microphone record
+=================
+
+#### PoC record from microphone.
+
+Needs to be run from commandline, because of the use of multiprocessing.
+
+
+dependencies:
+###### - Pyaudio
 
