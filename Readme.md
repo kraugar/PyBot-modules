@@ -26,7 +26,7 @@ sysinfo
 Screenshot pidgin
 =================
 
-###### Take screenshot of pidgin if it is on top.
+###### Take screenshot of pidgin if it is on the foreground.
 
 Microphone record
 =================
@@ -35,10 +35,8 @@ Microphone record
 
 ###### Needs to be run from commandline, because of the use of multiprocessing.
 
-
 #### dependencies:
 ###### - Pyaudio
-
 
 ####TODO:
 ###### - List all microphones.
@@ -49,12 +47,13 @@ Webcam view
 
 #### PoC view webcam feed. Very early!
 
-###### - Takes snapshot.
-###### - Shows video feed.
+###### - client & server: A very(!) simple reverse webcam connection. The client takes shots and sends them to the server, the server starts a webserver and shows the shots in a browser that refreshes.
+###### - Viewer: Simple video feed, takes snapshots and shows them in a GUI.
 
 #### Dependencies:
 ###### - opencv2
 ###### - numpy
+###### - flask
 
 ####TODO:
 ###### - List all webcams
