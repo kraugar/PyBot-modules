@@ -11,6 +11,7 @@ Stealers
 ###### -  Filezilla server credentials(plain text)
 ###### -  Chrome browsing history
 ###### -  Chrome passwords
+###### -  Chrome cookies
 
 sysinfo
 =======

