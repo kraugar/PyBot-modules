@@ -54,6 +54,7 @@ Webcam view
 ###### - opencv2
 ###### - numpy
 ###### - flask
+###### - requests
 
 ####TODO:
 ###### - List all webcams
